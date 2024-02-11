@@ -1,5 +1,5 @@
-export { createComment } from './create-comment';
-export { createPost } from './create-post';
-export { createTopic } from './create-topic';
-export { signIn } from './sign-in';
-export { signOut } from './sign-out';
+export { createComment } from './comments/create-comment';
+export { createPost } from './posts/create-post';
+export { createTopicAction } from './topics/create-topic.action';
+export { signIn } from './auth/sign-in';
+export { signOut } from './auth/sign-out';
