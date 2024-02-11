@@ -120,3 +120,6 @@ fabric.properties
 !.idea/runConfigurations
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij+all
+
+# Dabatabse local files
+dev.db*
