@@ -52,7 +52,6 @@ export async function createTopicAction(
       },
     });
   } catch (err: unknown) {
-    console.log(typeof err);
     if (err instanceof Error) {
       return {
         errors: {
