@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Button,
   Input,
@@ -6,10 +8,15 @@ import {
   PopoverTrigger,
   Textarea,
 } from '@nextui-org/react';
+import { useFormState } from 'react-dom';
 
 import * as actions from '@/actions';
 
 export default function TopicCreateForm() {
+  const [formState, action] = useFormState(actions.createTopicAction, {
+    errors: {},
+  });
+
   return (
     <Popover placement="left">
       <PopoverTrigger>
@@ -17,7 +24,7 @@ export default function TopicCreateForm() {
       </PopoverTrigger>
 
       <PopoverContent>
-        <form action={actions.createTopicAction}>
+        <form action={action}>
           <div className="flex flex-col gap-4 p-4 w-80">
             <h3 className="text-lg">Create a Topic</h3>
 
@@ -26,6 +33,8 @@ export default function TopicCreateForm() {
               label="Name"
               labelPlacement="outside"
               placeholder="name"
+              isInvalid={!!formState.errors.name}
+              errorMessage={formState.errors.name?.join(', ')}
             />
 
             <Textarea
@@ -33,7 +42,15 @@ export default function TopicCreateForm() {
               label="Description"
               labelPlacement="outside"
               placeholder="Describe your topic"
+              isInvalid={!!formState.errors.description}
+              errorMessage={formState.errors.description?.join(', ')}
             />
+
+            {formState.errors._form && (
+              <div className="p-2 bg-red-200 border border-red-500 rounded">
+                {formState.errors._form.join(', ')}
+              </div>
+            )}
 
             <Button type="submit">Submit</Button>
           </div>
