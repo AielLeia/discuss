@@ -8,6 +8,8 @@ type PostShowProps = {
 export default async function PostShow({
   postId,
 }: React.PropsWithChildren<PostShowProps>) {
+  await new Promise((r) => setTimeout(r, 2000));
+
   const post = await db.post.findFirst({ where: { id: postId } });
 
   if (!post) {
