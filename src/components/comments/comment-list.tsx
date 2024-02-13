@@ -1,5 +1,4 @@
 import { fetchCommentsByPostId } from '@/db/queries/comments';
-import React from 'react';
 
 import CommentShow from '@/components/comments/comment-show';
 
@@ -7,9 +6,7 @@ type CommentListProps = {
   postId: string;
 };
 
-export default async function CommentList({
-  postId,
-}: React.PropsWithChildren<CommentListProps>) {
+export default async function CommentList({ postId }: CommentListProps) {
   const comments = await fetchCommentsByPostId(postId);
 
   const topLevelComments = comments.filter(

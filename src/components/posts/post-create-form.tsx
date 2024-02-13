@@ -8,7 +8,6 @@ import {
   PopoverTrigger,
   Textarea,
 } from '@nextui-org/react';
-import React from 'react';
 import { useFormState } from 'react-dom';
 
 import FormButton from '@/components/common/form-button';
@@ -19,9 +18,7 @@ type PostCreateFormProps = {
   slug: string;
 };
 
-export default function PostCreateForm({
-  slug,
-}: React.PropsWithChildren<PostCreateFormProps>) {
+export default function PostCreateForm({ slug }: PostCreateFormProps) {
   const [formState, action] = useFormState(
     actions.createPost.bind(null, slug),
     { errors: {} }

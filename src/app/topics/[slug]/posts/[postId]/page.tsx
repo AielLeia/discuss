@@ -14,9 +14,7 @@ type PostShowPageProps = {
   };
 };
 
-export default function PostShowPage({
-  params,
-}: React.PropsWithChildren<PostShowPageProps>) {
+export default function PostShowPage({ params }: PostShowPageProps) {
   const { slug, postId } = params;
 
   return (

@@ -11,7 +11,7 @@ type CommentShowProps = {
 export default async function CommentShow({
   commentId,
   postId,
-}: React.PropsWithChildren<CommentShowProps>) {
+}: CommentShowProps) {
   const comments = await fetchCommentsByPostId(postId);
 
   const comment = comments.find((c) => c.id === commentId);

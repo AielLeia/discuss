@@ -1,15 +1,12 @@
 import type { PostWithTopicAndUserAndCount } from '@/db/queries/posts';
 import paths from '@/paths';
 import Link from 'next/link';
-import React from 'react';
 
 type PostListProps = {
   fetchData: () => Promise<PostWithTopicAndUserAndCount[]>;
 };
 
-export default async function PostList({
-  fetchData,
-}: React.PropsWithChildren<PostListProps>) {
+export default async function PostList({ fetchData }: PostListProps) {
   const posts = await fetchData();
 
   const renderedPosts = posts.map((post) => {
